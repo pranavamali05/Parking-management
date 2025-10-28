@@ -6,10 +6,10 @@ app = Flask(__name__)
 app.secret_key = 'any_random_secret_key'
 
 db = mysql.connector.connect(
-    host="localhost",
+    host="mysql.railway.internal",
     user="root",
-    password="Pranav@1210",
-    database="pranav"
+    password="XKMgQtnUZQpHGTaSsuxaZUqkxRCeWiTx",
+    database="railway"
 )
 
 MAX_SLOTS = 100  
