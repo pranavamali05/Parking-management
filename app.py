@@ -1,17 +1,20 @@
 from flask import Flask, request, render_template, redirect, flash
 import mysql.connector
 from mysql.connector import IntegrityError
+import os
+import mysql.connector
 
 app = Flask(__name__)
 app.secret_key = 'any_random_secret_key'
 
 db = mysql.connector.connect(
-    host="${{RAILWAY_PRIVATE_DOMAIN}}",
-    user="root",
-    password="${{MYSQL_ROOT_PASSWORD}}",
-    database="railway",
-    port=3306
+    host=os.getenv("DB_HOST"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASS"),
+    database=os.getenv("DB_NAME"),
+    port=os.getenv("DB_PORT")
 )
+
 
 MAX_SLOTS = 100  
 
