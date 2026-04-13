@@ -1,20 +1,16 @@
 from flask import Flask, request, render_template, redirect, flash
 import mysql.connector
 from mysql.connector import IntegrityError
-import os
-import mysql.connector
 
 app = Flask(__name__)
 app.secret_key = 'any_random_secret_key'
 
 db = mysql.connector.connect(
-    host=os.getenv("DB_HOST"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASS"),
-    database=os.getenv("DB_NAME"),
-    port=os.getenv("DB_PORT")
+    host="localhost",
+    user="root",
+    password="",
+    database="pranav"
 )
-
 
 MAX_SLOTS = 100  
 
@@ -125,4 +121,21 @@ def update_user(vehiclenumber):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
+# from flask import Flask, request, render_template, redirect, flash
+# import mysql.connector
+# from mysql.connector import IntegrityError
+# import os
+# import mysql.connector
+
+# app = Flask(__name__)
+# app.secret_key = 'any_random_secret_key'
+
+# db = mysql.connector.connect(
+#     host=os.getenv("DB_HOST"),
+#     user=os.getenv("DB_USER"),
+#     password=os.getenv("DB_PASS"),
+#     database=os.getenv("DB_NAME"),
+#     port=os.getenv("DB_PORT")
+# )
